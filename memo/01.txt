@@ -1,0 +1,36 @@
+【PHP URLの取得】
+$_SERVER['HTTP_HOST'] → トップページのURLを取得（Webサーバー側で保持しているホスト名）
+$_SERVER[‘SERVER_NAME’] → トップページのURLを取得（ブラウザからリクエストされた名前）
+
+■sslか判別して表示する
+if (empty($_SERVER["HTTPS"])) {
+    "http://";
+} else {
+    "https://";
+}
+$home_url = $_SERVER["HTTP_HOST"];
+echo $home_url;
+
+■現在のディレクトリパスを取得
+echo __DIR__;
+
+【PHP 別ファイル（php）の読み込み】
+require
+require_once
+例：require('test.php');
+例：require_once('test.php');
+
+include
+include_once
+例：include('test.php');
+例：include_once('test.php');
+
+■requireとincludeの違い
+require
+→エラー時は、Fatal Errorとなり、処理が止まります。
+include
+→エラー時は、Warningを出力し処理は実行されます。
+
+■requireとrequire_onceの違い
+requireと、require_onceは同じように機能します。
+違う点は、require_onceは、指定したファイルが読み込まれている場合、同じ処理を実行しても再度読み込まれることはありません。
